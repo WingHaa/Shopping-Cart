@@ -16,62 +16,64 @@ import godspeedPreview5 from '../../public/assets/img/products/godspeed/0258-pc.
 import godspeedPreview6 from '../../public/assets/img/products/godspeed/0246.jpg'
 import godspeedPreview7 from '../../public/assets/img/products/godspeed/GODSPEED RESHOOTS0561.jpg'
 
+import uniqid from 'uniqid';
+
 const godspeedSet = {
-  id: 2,
+  id: uniqid(),
   set: 'Godspeed',
   card: godspeedCard,
   preview: [godspeedPreview1, godspeedPreview2, godspeedPreview3, godspeedPreview4, godspeedPreview5, godspeedPreview6, godspeedPreview7],
   kits: [
     {
-      id: 1,
+      id: uniqid(),
       name: 'Solar Alphas',
       price: 45,
       img: godspeedSolarAlphas
     },
     {
-      id: 2,
+      id: uniqid(),
       name: 'Lunar Alphas',
       price: 45,
       img: godspeedLunarAlphas
     },
     {
-      id: 3,
+      id: uniqid(),
       name: 'Supernova Alphas',
       price: 45,
       img: godspeedSupernovaAlphas
     },
     {
-      id: 4,
+      id: uniqid(),
       name: 'Ares Mods',
       price: 95,
       img: godspeedAresMods
     },
     {
-      id: 5,
+      id: uniqid(),
       name: 'Apollo Mods',
       price: 95,
       img: godspeedApolloMods
     },
     {
-      id: 6,
+      id: uniqid(),
       name: 'Solar Numpad',
       price: 38,
       img: godspeedSolarNumpad
     },
     {
-      id: 7,
+      id: uniqid(),
       name: 'Lunar Numpad',
       price: 38,
       img: godspeedLunarNumpad
     },
     {
-      id: 8,
+      id: uniqid(),
       name: 'Mitonauts',
       price: 45,
       img: godspeedMitonauts
     },
     {
-      id: 9,
+      id: uniqid(),
       name: 'Novelties',
       price: 55,
       img: godspeedNovelties

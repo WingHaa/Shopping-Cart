@@ -28,128 +28,131 @@ import carbonPreview6 from '../../public/assets/img/products/carbon/2114-copy-pd
 import carbonPreview7 from '../../public/assets/img/products/carbon/2139-copy-pdp.jpg'
 import carbonPreview8 from '../../public/assets/img/products/carbon/2188-copy-pdp.jpg'
 import carbonPreview9 from '../../public/assets/img/products/carbon/2192-copy-pdp.jpg'
+
+import uniqid from 'uniqid';
+
 const carbonSet = {
-  id: 1,
+  id: uniqid(),
   set: 'Carbon',
   card: carbonCard,
   preview: [carbonPreview1, carbonPreview2, carbonPreview3, carbonPreview4, carbonPreview5, carbonPreview6, carbonPreview7, carbonPreview8, carbonPreview9],
   kits: [
     {
-      id: 1,
+      id: uniqid(),
       name: 'Carbon Alphas',
       price: 49,
       img: carbonAlphas
     },
     {
-      id: 2,
+      id: uniqid(),
       name: 'Carbonski',
       price: 49,
       img: carbonCarbonski
     },
     {
-      id: 3,
+      id: uniqid(),
       name: 'Dual Alphas',
       price: 49,
       img: carbonDualAlphas
     },
     {
-      id: 4,
+      id: uniqid(),
       name: 'Modifiers',
       price: 99,
       img: carbonModifiers
     },
     {
-      id: 5,
+      id: uniqid(),
       name: 'Dual Modifiers',
       price: 99,
       img: carbonDualModifiers
     },
     {
-      id: 6,
+      id: uniqid(),
       name: 'Bones Modifiers',
       price: 99,
       img: carbonBonesModifiers
     },
     {
-      id: 7,
+      id: uniqid(),
       name: '40 Percent',
       price: 55,
       img: carbonFortyPercent
     },
     {
-      id: 8,
+      id: uniqid(),
       name: 'Ergodox Kit',
       price: 70,
       img: carbonErgodox
     },
     {
-      id: 9,
+      id: uniqid(),
       name: 'Numpad',
       price: 42,
       img: carbonNumpad
     },
     {
-      id: 10,
+      id: uniqid(),
       name: 'Bones Numpad',
       price: 42,
       img: carbonBonesNumpad
     },
     {
-      id: 11,
+      id: uniqid(),
       name: 'Iso UK',
       price: 40,
       img: carbonIsoUK
     },
     {
-      id: 12,
+      id: uniqid(),
       name: 'Xtra Kit',
       price: 25,
       img: carbonXtraKit
     },
     {
-      id: 13,
+      id: uniqid(),
       name: 'Warning Signs',
       price: 22,
       img: carbonWarningSigns
     },
     {
-      id: 14,
+      id: uniqid(),
       name: 'Rolling Bones',
       price: 70,
       img: carbonRollingBones
     },
     {
-      id: 15,
+      id: uniqid(),
       name: 'Half-life Lambda Kit',
       price: 9,
       img: carbonHalfLifeLambda
     },
     {
-      id: 16,
+      id: uniqid(),
       name: '6.25U Spacebar Kit',
       price: 10,
       img: carbon625uSpacebar
     },
     {
-      id: 17,
+      id: uniqid(),
       name: '7U Spacebar Kit',
       price: 10,
       img: carbon7uSpacebar
     },
     {
-      id: 18,
+      id: uniqid(),
       name: 'Beige Spacekeys',
       price: 12,
       img: carbonBeigeSpacekey
     },
     {
-      id: 19,
+      id: uniqid(),
       name: 'Gray Spacekeys',
       price: 12,
       img: carbonGraySpacekey
     },
     {
-      id: 20,
+      id: uniqid(),
       name: 'Carbon Novelties',
       price: 34,
       img: carbonNovelties

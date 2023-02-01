@@ -16,68 +16,70 @@ import oblivionPreview4 from '../../public/assets/img/products/oblivion/1120.jpg
 import oblivionPreview5 from '../../public/assets/img/products/oblivion/1125.jpg.jpg'
 import oblivionPreview6 from '../../public/assets/img/products/oblivion/1144.jpg.jpg'
 
+import uniqid from 'uniqid';
+
 const oblivionSet = {
-  id: 5,
+  id: uniqid(),
   set: 'Oblivion',
   card: oblivionCard,
   preview: [oblivionPreview1, oblivionPreview2, oblivionPreview3, oblivionPreview4, oblivionPreview5, oblivionPreview6],
   kits: [
     {
-      id: 1,
+      id: uniqid(),
       name: 'Git Modifiers',
       price: 110,
       img: oblivionGitModifiers
     },
     {
-      id: 2,
+      id: uniqid(),
       name: 'Hagoromo Alphas',
       price: 60,
       img: oblivionHagoAlphas
     },
     {
-      id: 3,
+      id: uniqid(),
       name: 'Hagoromo ASCII Alpha',
       price: 65,
       img: oblivionHagoAsciiAlphas
     },
     {
-      id: 4,
+      id: uniqid(),
       name: 'Hagoromo Numpad',
       price: 50,
       img: oblivionHagoNumpad
     },
     {
-      id: 5,
+      id: uniqid(),
       name: 'Monochrome Modifiers',
       price: 120,
       img: oblivionMonoMod
     },
     {
-      id: 6,
+      id: uniqid(),
       name: 'Oblivion Alphas',
       price: 60,
       img: oblivionOblivionAlphas
     },
     {
-      id: 7,
+      id: uniqid(),
       name: 'Oblivion ASCII Alphas',
       price: 65,
       img: oblivionOblivionAsciiAlphas
     },
     {
-      id: 8,
+      id: uniqid(),
       name: 'Oblivion Modifiers',
       price: 115,
       img: oblivionOblivionMod
     },
     {
-      id: 9,
+      id: uniqid(),
       name: 'Oblivion Numpad',
       price: 50,
       img: oblivionOblivionNumpad
     },
     {
-      id: 10,
+      id: uniqid(),
       name: 'Vim',
       price: 40,
       img: oblivionVim

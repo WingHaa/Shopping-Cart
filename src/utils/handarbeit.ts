@@ -10,32 +10,34 @@ import handarbeitPreview4 from '../../public/assets/img/products/handarbeit/SA H
 import handarbeitPreview5 from '../../public/assets/img/products/handarbeit/SA Handarbeit - 5.png'
 import handarbeitPreview6 from '../../public/assets/img/products/handarbeit/SA Handarbeit - 6.png'
 
+import uniqid from 'uniqid';
+
 const handarbeitSet = {
-  id: 3,
+  id: uniqid(),
   set: 'Handarbeit',
   card: handarbeitCard,
   preview: [handarbeitPreview1, handarbeitPreview2, handarbeitPreview3, handarbeitPreview4, handarbeitPreview5, handarbeitPreview6],
   kits: [
     {
-      id: 1,
+      id: uniqid(),
       name: 'Base Kit(Sculpted)',
       price: 150,
       img: handarbeitBaseSculpted
     },
     {
-      id: 2,
+      id: uniqid(),
       name: 'Base Kit(Flat)',
       price: 150,
       img: handarbeitBaseFlat
     },
     {
-      id: 3,
+      id: uniqid(),
       name: 'Numpad',
       price: 30,
       img: handarbeitNumpad
     },
     {
-      id: 4,
+      id: uniqid(),
       name: 'Spacebars',
       price: 25,
       img: handarbeitSpacebars

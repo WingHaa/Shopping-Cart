@@ -13,56 +13,58 @@ import laserPreview3 from '../../public/assets/img/products/laser/CTRL 4.png'
 import laserPreview4 from '../../public/assets/img/products/laser/CTRL 6.png'
 import laserPreview5 from '../../public/assets/img/products/laser/CTRL 9.png'
 
+import uniqid from 'uniqid';
+
 const laserSet = {
-  id: 4,
+  id: uniqid(),
   set: 'Laser',
   card: laserCard,
   preview: [laserPreview1, laserPreview2, laserPreview3, laserPreview4, laserPreview5],
   kits: [
     {
-      id: 1,
+      id: uniqid(),
       name: 'Alphas',
       price: 58,
       img: laserAlphas
     },
     {
-      id: 2,
+      id: uniqid(),
       name: 'Gaijin',
       price: 58,
       img: laserGaijin
     },
     {
-      id: 3,
+      id: uniqid(),
       name: 'Kobe',
       price: 58,
       img: laserKobe
     },
     {
-      id: 4,
+      id: uniqid(),
       name: 'Mods',
       price: 84,
       img: laserMods
     },
     {
-      id: 5,
+      id: uniqid(),
       name: 'Micons',
       price: 84,
       img: laserMicons
     },
     {
-      id: 6,
+      id: uniqid(),
       name: 'Obnet',
       price: 84,
       img: laserObnet
     },
     {
-      id: 7,
+      id: uniqid(),
       name: 'Numpad',
       price: 34,
       img: laserNumpad
     },
     {
-      id: 8,
+      id: uniqid(),
       name: 'Turbo',
       price: 36,
       img: laserTurbo
