@@ -1,10 +1,8 @@
 import Head from "next/head";
 import Image from "next/image";
-import { Inter } from "@next/font/google";
-import styles from "@/styles/Home.module.css";
-
-const inter = Inter({ subsets: ["latin"] });
+import ProductSlider from "@/components/ProductSlider";
+import productDatabase from "@/utils/products-database";
 
 export default function Home() {
-  return;
+  return <ProductSlider {...productDatabase[0]} />;
 }
