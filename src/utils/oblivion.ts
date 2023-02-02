@@ -12,9 +12,9 @@ import oblivionVim from '../../public/assets/img/products/oblivion/vim.jpg'
 import oblivionPreview1 from '../../public/assets/img/products/oblivion/copy.jpg'
 import oblivionPreview2 from '../../public/assets/img/products/oblivion/copy-small.jpg'
 import oblivionPreview3 from '../../public/assets/img/products/oblivion/1111.jpg'
-import oblivionPreview4 from '../../public/assets/img/products/oblivion/1120.jpg.jpg'
-import oblivionPreview5 from '../../public/assets/img/products/oblivion/1125.jpg.jpg'
-import oblivionPreview6 from '../../public/assets/img/products/oblivion/1144.jpg.jpg'
+import oblivionPreview4 from '../../public/assets/img/products/oblivion/1120.jpg'
+import oblivionPreview5 from '../../public/assets/img/products/oblivion/1125.jpg'
+import oblivionPreview6 from '../../public/assets/img/products/oblivion/1144.jpg'
 
 import uniqid from 'uniqid';
 
