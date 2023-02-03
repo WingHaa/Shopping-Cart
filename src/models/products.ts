@@ -1,7 +1,7 @@
 import type { StaticImageData } from "next/image"
 type ImageLink = string | StaticImageData;
 
-interface KeycapKits {
+export interface KeycapKits {
   id: string;
   name: string;
   price: number;
