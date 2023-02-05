@@ -1,8 +1,11 @@
 import { StaticImageData } from "next/image";
-import { forwardRef } from "react";
+import { forwardRef, MutableRefObject } from "react";
 import Image from "next/image";
 
+const getId = (index: number) => {};
+
 type Props = {
+  currentIndex: number;
   images: {
     img: StaticImageData;
     id?: string;
@@ -10,31 +13,36 @@ type Props = {
     price?: number;
   }[];
   handleScroll: (index: number) => void;
-  className: string;
+  handleChangeImage: (index: number) => void;
 };
 
 export const ImageSlider = forwardRef<HTMLImageElement[], Props>(
-  function ImageSlider({ images, handleScroll, className }, imageRef) {
+  function ImageSlider(
+    { currentIndex, images, handleScroll, handleChangeImage },
+    ref
+  ) {
     const list = images.map((image, index) => (
       <Image
+        className={
+          "w-auto h-full border-2 transition-all " +
+          (currentIndex === index
+            ? "border-amber-300 p-1"
+            : "border-transparent p-2")
+        }
         key={index}
-        ref={(el) => {
-          if (
-            typeof imageRef !== "function" &&
-            el &&
-            imageRef &&
-            imageRef.current
-          )
-            imageRef.current[index] = el;
+        ref={(el: HTMLImageElement) => {
+          if (typeof ref === "object" && ref && ref.current)
+            return (ref.current[index] = el);
         }}
         onClick={() => {
           handleScroll(index);
+          handleChangeImage(index);
         }}
         src={image.img}
         alt=""
       />
     ));
 
-    return <div className={className + " flex h-32"}>{list}</div>;
+    return <div className="mt-2 overflow-hidden flex h-32 gap-1">{list}</div>;
   }
 );
