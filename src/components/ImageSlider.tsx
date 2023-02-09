@@ -1,8 +1,6 @@
 import { StaticImageData } from "next/image";
-import { forwardRef, MutableRefObject } from "react";
+import { forwardRef } from "react";
 import Image from "next/image";
-
-const getId = (index: number) => {};
 
 type Props = {
   currentIndex: number;

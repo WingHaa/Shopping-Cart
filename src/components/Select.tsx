@@ -1,31 +1,52 @@
-import React from "react";
+import React, { useRef } from "react";
 
 import { PreviewImg, KitData } from "./ProductSlider";
 
 type Props = {
-  images: (PreviewImg | KitData)[];
+  images: KitData[];
+  currentKit: KitData;
+  set: string;
   handleChangeImage: (index: number) => void;
   handleScroll: (index: number) => void;
+  handleChangeCurrentKit: (index: number) => void;
+  handleAddItem: () => void;
 };
 
-export const Select = ({ images, handleChangeImage, handleScroll }: Props) => {
-  const kitList = images
-    .filter((obj): obj is KitData => obj.hasOwnProperty("price"))
-    .map((kit) => (
-      <option key={kit.id} value={kit.id}>
-        {kit.name}
-      </option>
-    ));
+export const Select = ({
+  images,
+  currentKit,
+  set,
+  handleChangeImage,
+  handleScroll,
+  handleChangeCurrentKit,
+  handleAddItem,
+}: Props) => {
+  const selectRef = useRef(null);
+
+  const kitList = images.map((kit) => (
+    <option key={kit.index} value={kit.index}>
+      {kit.name}
+    </option>
+  ));
+
   return (
-    <select
-      onChange={(e) => {
-        handleChangeImage(+e.target.value);
-        handleScroll(+e.target.value);
-      }}
-      name="product"
-      id="product"
-    >
-      {kitList}
-    </select>
+    <div>
+      <h1>{set.toUpperCase()}</h1>
+      <div>${currentKit.price}</div>
+      <div>Keycap Kit:</div>
+      <select
+        onChange={(e) => {
+          handleChangeImage(+e.target.value);
+          handleScroll(+e.target.value);
+          handleChangeCurrentKit(+e.target.value);
+        }}
+        ref={selectRef}
+        name="product"
+        id="product"
+      >
+        {kitList}
+      </select>
+      <button onClick={handleAddItem}>ADD TO CART</button>
+    </div>
   );
 };
