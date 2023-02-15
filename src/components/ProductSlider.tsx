@@ -1,6 +1,6 @@
 import { KeycapKits, KeycapSet } from "src/models/products";
 import React, { useRef, useState } from "react";
-import { Select } from "./Select";
+import { SelectComponent } from "./Select";
 import { ImageSlider } from "./ImageSlider";
 import Image, { StaticImageData } from "next/image";
 import productDatabase from "src/utils/products-database";
@@ -108,22 +108,23 @@ const ProductSlider = (props: KeycapSet) => {
     </div>
   ));
 
-  const getNextIndex = (modifier: number): number => {
+  const getNextIndex = (modifier: -1 | 1): number => {
     if (modifier === -1) {
       if (currentIndex === 0) return images.length - 1;
       return currentIndex - 1;
     }
-    if (modifier === 1) {
-      if (currentIndex === images.length - 1) return 0;
-      return currentIndex + 1;
-    }
+    if (currentIndex === images.length - 1) return 0;
+    return currentIndex + 1;
   };
 
   return (
     <div className="flex">
-      <div className="w-[1100px]">
+      <div className="max-w-4xl">
         <div className="relative ">
           <span className="z-50 absolute -bottom-4 right-0 ">
+            <span className="absolute top-0 right-0 -translate-y-full bg-gray-50">
+              {`${currentIndex + 1}/${images.length}`}
+            </span>
             <button
               className="border-2 border-purple-600"
               onClick={() => {
@@ -153,17 +154,15 @@ const ProductSlider = (props: KeycapSet) => {
           ref={imageRef}
         />
       </div>
-      <div>
-        <Select
-          handleChangeImage={handleChangeImage}
-          handleScroll={handleScroll}
-          handleChangeCurrentKit={handleChangeCurrentKit}
-          handleAddItem={addItem}
-          images={product}
-          currentKit={currentKit}
-          set={props.set}
-        />
-      </div>
+      <SelectComponent
+        handleChangeImage={handleChangeImage}
+        handleScroll={handleScroll}
+        handleChangeCurrentKit={handleChangeCurrentKit}
+        handleAddItem={addItem}
+        images={product}
+        currentKit={currentKit}
+        set={props.set}
+      />
       <div className="cart">{cartEl}</div>
     </div>
   );
