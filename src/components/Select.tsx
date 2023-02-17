@@ -1,6 +1,7 @@
-import React, { useRef } from "react";
+import React, { ReactElement, useContext, useRef } from "react";
 import { PreviewImg, KitData } from "./ProductSlider";
 import Select from "react-select";
+import { CartDispatchContext } from "@/pages/_app";
 
 type Props = {
   images: KitData[];
@@ -9,7 +10,6 @@ type Props = {
   handleChangeImage: (index: number) => void;
   handleScroll: (index: number) => void;
   handleChangeCurrentKit: (index: number) => void;
-  handleAddItem: () => void;
 };
 
 export const SelectComponent = ({
@@ -19,10 +19,10 @@ export const SelectComponent = ({
   handleChangeImage,
   handleScroll,
   handleChangeCurrentKit,
-  handleAddItem,
 }: Props) => {
   const selectRef = useRef(null);
   const kitList = images.map((kit) => ({ value: kit.index, label: kit.name }));
+  const cartDispatch = useContext(CartDispatchContext);
 
   return (
     <div className="flex flex-col gap-4 grow">
@@ -79,8 +79,19 @@ export const SelectComponent = ({
           }),
         }}
       />
-      <div className="flex justify-center items-center bg-black text-white h-[60px] font-normal text-base slide-button">
-        <button onClick={handleAddItem}>ADD TO CART</button>
+      <div className="cursor-pointer flex justify-center items-center bg-black text-white h-[60px] font-normal text-base slide-button">
+        <button
+          onClick={() => {
+            if (cartDispatch)
+              cartDispatch({
+                type: "add",
+                name: currentKit.name,
+                set: currentKit.set,
+              });
+          }}
+        >
+          ADD TO CART
+        </button>
       </div>
     </div>
   );

@@ -14,31 +14,35 @@ import uniqid from 'uniqid';
 
 const handarbeitSet = {
   id: uniqid(),
-  set: 'Handarbeit',
+  name: 'DROP + COCOBRAIS SA HANDARBEIT CUSTOM KEYCAP SET',
   card: handarbeitCard,
   preview: [handarbeitPreview1, handarbeitPreview2, handarbeitPreview3, handarbeitPreview4, handarbeitPreview5, handarbeitPreview6],
   kits: [
     {
       id: uniqid(),
       name: 'Base Kit(Sculpted)',
+      set: 'handarbeit',
       price: 150,
       img: handarbeitBaseSculpted
     },
     {
       id: uniqid(),
       name: 'Base Kit(Flat)',
+      set: 'handarbeit',
       price: 150,
       img: handarbeitBaseFlat
     },
     {
       id: uniqid(),
       name: 'Numpad',
+      set: 'handarbeit',
       price: 30,
       img: handarbeitNumpad
     },
     {
       id: uniqid(),
       name: 'Spacebars',
+      set: 'handarbeit',
       price: 25,
       img: handarbeitSpacebars
     },

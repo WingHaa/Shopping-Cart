@@ -17,55 +17,63 @@ import uniqid from 'uniqid';
 
 const laserSet = {
   id: uniqid(),
-  set: 'Laser',
+  name: 'DROP + MITO SA LASER CUSTOM KEYCAP SET',
   card: laserCard,
   preview: [laserPreview1, laserPreview2, laserPreview3, laserPreview4, laserPreview5],
   kits: [
     {
       id: uniqid(),
       name: 'Alphas',
+      set: 'laser',
       price: 58,
       img: laserAlphas
     },
     {
       id: uniqid(),
       name: 'Gaijin',
+      set: 'laser',
       price: 58,
       img: laserGaijin
     },
     {
       id: uniqid(),
       name: 'Kobe',
+      set: 'laser',
       price: 58,
       img: laserKobe
     },
     {
       id: uniqid(),
       name: 'Mods',
+      set: 'laser',
       price: 84,
       img: laserMods
     },
     {
       id: uniqid(),
       name: 'Micons',
+      set: 'laser',
       price: 84,
       img: laserMicons
     },
     {
       id: uniqid(),
       name: 'Obnet',
+      set: 'laser',
       price: 84,
       img: laserObnet
     },
     {
       id: uniqid(),
       name: 'Numpad',
+      set: 'laser',
       price: 34,
       img: laserNumpad
     },
     {
       id: uniqid(),
       name: 'Turbo',
+      set: 'laser',
       price: 36,
       img: laserTurbo
     },

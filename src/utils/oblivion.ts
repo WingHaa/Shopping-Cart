@@ -20,67 +20,77 @@ import uniqid from 'uniqid';
 
 const oblivionSet = {
   id: uniqid(),
-  set: 'Oblivion',
+  name: 'DROP + OBLOTZKY SA OBLIVION V2 CUSTOM KEYCAP SET',
   card: oblivionCard,
   preview: [oblivionPreview1, oblivionPreview2, oblivionPreview3, oblivionPreview4, oblivionPreview5, oblivionPreview6],
   kits: [
     {
       id: uniqid(),
       name: 'Git Modifiers',
+      set: 'oblivion',
       price: 110,
       img: oblivionGitModifiers
     },
     {
       id: uniqid(),
       name: 'Hagoromo Alphas',
+      set: 'oblivion',
       price: 60,
       img: oblivionHagoAlphas
     },
     {
       id: uniqid(),
       name: 'Hagoromo ASCII Alpha',
+      set: 'oblivion',
       price: 65,
       img: oblivionHagoAsciiAlphas
     },
     {
       id: uniqid(),
       name: 'Hagoromo Numpad',
+      set: 'oblivion',
       price: 50,
       img: oblivionHagoNumpad
     },
     {
       id: uniqid(),
       name: 'Monochrome Modifiers',
+      set: 'oblivion',
       price: 120,
       img: oblivionMonoMod
     },
     {
       id: uniqid(),
       name: 'Oblivion Alphas',
+      set: 'oblivion',
       price: 60,
       img: oblivionOblivionAlphas
     },
     {
       id: uniqid(),
       name: 'Oblivion ASCII Alphas',
+      set: 'oblivion',
       price: 65,
       img: oblivionOblivionAsciiAlphas
     },
     {
       id: uniqid(),
       name: 'Oblivion Modifiers',
+      set: 'oblivion',
       price: 115,
       img: oblivionOblivionMod
     },
     {
       id: uniqid(),
       name: 'Oblivion Numpad',
+      set: 'oblivion',
       price: 50,
       img: oblivionOblivionNumpad
     },
     {
       id: uniqid(),
       name: 'Vim',
+      set: 'oblivion',
       price: 40,
       img: oblivionVim
     },

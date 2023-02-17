@@ -33,127 +33,147 @@ import uniqid from 'uniqid';
 
 const carbonSet = {
   id: uniqid(),
-  set: 'Carbon',
+  name: 'DROP + T0MB3RY SA CARBON CUSTOM KEYCAP SET',
   card: carbonCard,
   preview: [carbonPreview1, carbonPreview2, carbonPreview3, carbonPreview4, carbonPreview5, carbonPreview6, carbonPreview7, carbonPreview8, carbonPreview9],
   kits: [
     {
       id: uniqid(),
       name: 'Carbon Alphas',
+      set: 'carbon',
       price: 49,
       img: carbonAlphas
     },
     {
       id: uniqid(),
       name: 'Carbonski',
+      set: 'carbon',
       price: 49,
       img: carbonCarbonski
     },
     {
       id: uniqid(),
       name: 'Dual Alphas',
+      set: 'carbon',
       price: 49,
       img: carbonDualAlphas
     },
     {
       id: uniqid(),
       name: 'Modifiers',
+      set: 'carbon',
       price: 99,
       img: carbonModifiers
     },
     {
       id: uniqid(),
       name: 'Dual Modifiers',
+      set: 'carbon',
       price: 99,
       img: carbonDualModifiers
     },
     {
       id: uniqid(),
       name: 'Bones Modifiers',
+      set: 'carbon',
       price: 99,
       img: carbonBonesModifiers
     },
     {
       id: uniqid(),
       name: '40 Percent',
+      set: 'carbon',
       price: 55,
       img: carbonFortyPercent
     },
     {
       id: uniqid(),
       name: 'Ergodox Kit',
+      set: 'carbon',
       price: 70,
       img: carbonErgodox
     },
     {
       id: uniqid(),
       name: 'Numpad',
+      set: 'carbon',
       price: 42,
       img: carbonNumpad
     },
     {
       id: uniqid(),
       name: 'Bones Numpad',
+      set: 'carbon',
       price: 42,
       img: carbonBonesNumpad
     },
     {
       id: uniqid(),
       name: 'Iso UK',
+      set: 'carbon',
       price: 40,
       img: carbonIsoUK
     },
     {
       id: uniqid(),
       name: 'Xtra Kit',
+      set: 'carbon',
       price: 25,
       img: carbonXtraKit
     },
     {
       id: uniqid(),
       name: 'Warning Signs',
+      set: 'carbon',
       price: 22,
       img: carbonWarningSigns
     },
     {
       id: uniqid(),
       name: 'Rolling Bones',
+      set: 'carbon',
       price: 70,
       img: carbonRollingBones
     },
     {
       id: uniqid(),
       name: 'Half-life Lambda Kit',
+      set: 'carbon',
       price: 9,
       img: carbonHalfLifeLambda
     },
     {
       id: uniqid(),
       name: '6.25U Spacebar Kit',
+      set: 'carbon',
       price: 10,
       img: carbon625uSpacebar
     },
     {
       id: uniqid(),
       name: '7U Spacebar Kit',
+      set: 'carbon',
       price: 10,
       img: carbon7uSpacebar
     },
     {
       id: uniqid(),
       name: 'Beige Spacekeys',
+      set: 'carbon',
       price: 12,
       img: carbonBeigeSpacekey
     },
     {
       id: uniqid(),
       name: 'Gray Spacekeys',
+      set: 'carbon',
       price: 12,
       img: carbonGraySpacekey
     },
     {
       id: uniqid(),
       name: 'Carbon Novelties',
+      set: 'carbon',
       price: 34,
       img: carbonNovelties
     },

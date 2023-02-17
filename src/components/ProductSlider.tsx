@@ -3,7 +3,7 @@ import React, { useRef, useState } from "react";
 import { SelectComponent } from "./Select";
 import { ImageSlider } from "./ImageSlider";
 import Image, { StaticImageData } from "next/image";
-import productDatabase from "src/utils/products-database";
+import { getProduct } from "../utils/getProduct";
 
 export interface PreviewImg {
   img: StaticImageData;
@@ -14,76 +14,26 @@ export interface KitData extends KeycapKits {
   index: number;
 }
 
-interface CartItem {
-  item: KeycapKits;
-  amount: number;
-}
-
 const getImages = (product: KeycapSet): [PreviewImg[], KitData[]] => {
   let i = 0;
   const previewImg = product.preview.map((image) => ({
     img: image,
     index: i++,
-    set: product.set,
+    set: product.kits[0].set,
   }));
   const productImg = product.kits.map((kit) => ({
     ...kit,
     index: i++,
-    set: product.set,
+    set: product.kits[0].set,
   }));
   return [previewImg, productImg];
-};
-
-const getProduct = (name: string, setName: string): KeycapKits | undefined => {
-  const set = productDatabase.find((set) => set.set === setName);
-  if (!set) throw new Error("Set not found");
-  return set.kits.find((kit) => kit.name === name);
 };
 
 const ProductSlider = (props: KeycapSet) => {
   const [preview, product] = getImages(props);
   const images = [...preview, ...product];
-
   const [currentKit, setCurrentKit] = useState(product[0]);
   const [currentIndex, setCurrentIndex] = useState(0);
-
-  const [cart, setCart] = useState<CartItem[]>([]);
-
-  const addItem = () => {
-    const name = currentKit.name;
-    const set = props.set;
-    if (cart.find((product) => product.item.name === name)) {
-      return setCart((prevCart) =>
-        prevCart.map((product) => {
-          if (product.item.name === name) {
-            return { ...product, amount: product.amount + 1 };
-          }
-          return product;
-        })
-      );
-    }
-    const newItem = getProduct(name, set);
-    if (!newItem) throw new Error("Item not found");
-    return setCart((prevCart) => [...prevCart, { item: newItem, amount: 1 }]);
-  };
-  const removeItem = (name: string) => {
-    if (
-      cart.find((product) => product.item.name === name && product.amount > 1)
-    ) {
-      return setCart((prevCart) =>
-        prevCart.map((product) => {
-          if (product.item.name === name) {
-            return { ...product, amount: product.amount - 1 };
-          }
-          return product;
-        })
-      );
-    }
-    return setCart((prevCart) =>
-      prevCart.filter((product) => product.item.name === name)
-    );
-  };
-
   const imageRef = useRef<HTMLImageElement[]>([]);
 
   const handleChangeImage = (nextIndex: number) => {
@@ -101,12 +51,12 @@ const ProductSlider = (props: KeycapSet) => {
     setCurrentKit(images[index] as KitData);
   };
 
-  const cartEl = cart.map((product) => (
-    <div key={product.item.name}>
-      <div>{product.item.name}</div>
-      <div>Total: {product.item.price * product.amount}</div>
-    </div>
-  ));
+  // const cartEl = cart.map((product) => (
+  //   <div key={product.item.name}>
+  //     <div>{product.item.name}</div>
+  //     <div>Total: {product.item.price * product.amount}</div>
+  //   </div>
+  // ));
 
   const getNextIndex = (modifier: -1 | 1): number => {
     if (modifier === -1) {
@@ -118,30 +68,53 @@ const ProductSlider = (props: KeycapSet) => {
   };
 
   return (
-    <div className="flex">
+    <div className="flex gap-5">
       <div className="max-w-4xl">
         <div className="relative ">
           <span className="z-50 absolute -bottom-4 right-0 ">
-            <span className="absolute top-0 right-0 -translate-y-full bg-gray-50">
-              {`${currentIndex + 1}/${images.length}`}
-            </span>
+            <div className="absolute top-0 right-0 -translate-y-full bg-gray-50 h-6 w-14 flex justify-center items-center">
+              <span className=" text-[8px] ">
+                {`${currentIndex + 1}/${images.length}`}
+              </span>
+            </div>
             <button
-              className="border-2 border-purple-600"
+              className="group w-11 h-11 bg-[#fdcf41] hover:bg-black"
               onClick={() => {
                 handleScroll(getNextIndex(-1));
                 handleChangeImage(getNextIndex(-1));
               }}
             >
-              Left
+              <span className="flex justify-center items-center group-hover:text-white">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20z"></path>
+                </svg>
+              </span>
             </button>
             <button
-              className="border-2 border-purple-600"
+              className="group w-11 h-11 bg-[#fdcf41] hover:bg-black"
               onClick={() => {
                 handleScroll(getNextIndex(1));
                 handleChangeImage(getNextIndex(1));
               }}
             >
-              Right
+              <span className="flex justify-center items-center group-hover:text-white">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20z"
+                    transform="scale(-1, 1) translate(-24, 0)"
+                  ></path>
+                </svg>
+              </span>
             </button>
           </span>
           <Image src={images[currentIndex].img} alt="" />
@@ -158,12 +131,11 @@ const ProductSlider = (props: KeycapSet) => {
         handleChangeImage={handleChangeImage}
         handleScroll={handleScroll}
         handleChangeCurrentKit={handleChangeCurrentKit}
-        handleAddItem={addItem}
         images={product}
         currentKit={currentKit}
-        set={props.set}
+        set={props.kits[0].set}
       />
-      <div className="cart">{cartEl}</div>
+      {/* <div className="cart">{cartEl}</div> */}
     </div>
   );
 };

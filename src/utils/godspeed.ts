@@ -20,61 +20,70 @@ import uniqid from 'uniqid';
 
 const godspeedSet = {
   id: uniqid(),
-  set: 'Godspeed',
+  name: 'DROP + MITO SA GODSPEED CUSTOM KEYCAP SET',
   card: godspeedCard,
   preview: [godspeedPreview1, godspeedPreview2, godspeedPreview3, godspeedPreview4, godspeedPreview5, godspeedPreview6, godspeedPreview7],
   kits: [
     {
       id: uniqid(),
       name: 'Solar Alphas',
+      set: 'godspeed',
       price: 45,
       img: godspeedSolarAlphas
     },
     {
       id: uniqid(),
       name: 'Lunar Alphas',
+      set: 'godspeed',
       price: 45,
       img: godspeedLunarAlphas
     },
     {
       id: uniqid(),
       name: 'Supernova Alphas',
+      set: 'godspeed',
       price: 45,
       img: godspeedSupernovaAlphas
     },
     {
       id: uniqid(),
       name: 'Ares Mods',
+      set: 'godspeed',
       price: 95,
       img: godspeedAresMods
     },
     {
       id: uniqid(),
       name: 'Apollo Mods',
+      set: 'godspeed',
       price: 95,
       img: godspeedApolloMods
     },
     {
       id: uniqid(),
       name: 'Solar Numpad',
+      set: 'godspeed',
       price: 38,
       img: godspeedSolarNumpad
     },
     {
       id: uniqid(),
       name: 'Lunar Numpad',
+      set: 'godspeed',
       price: 38,
       img: godspeedLunarNumpad
     },
     {
       id: uniqid(),
       name: 'Mitonauts',
+      set: 'godspeed',
       price: 45,
       img: godspeedMitonauts
     },
     {
       id: uniqid(),
       name: 'Novelties',
+      set: 'godspeed',
       price: 55,
       img: godspeedNovelties
     },
