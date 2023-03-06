@@ -1,5 +1,5 @@
 import React, { ReactElement, useContext, useRef } from "react";
-import { PreviewImg, KitData } from "./ProductSlider";
+import { PreviewImg, KitData } from "../pages/[product]";
 import Select from "react-select";
 import { CartDispatchContext } from "@/pages/_app";
 

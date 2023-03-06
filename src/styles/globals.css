@@ -17,3 +17,9 @@
 .product_select__control:hover .product_select__indicator {
   color: #fdcf41;
 }
+
+.hero-banner-header {
+  background-color: #fff;
+  height: 100%;
+  width: 100%;
+}

@@ -1,6 +1,6 @@
 import React, { ReactNode, useContext } from "react";
 import Link from "next/link";
-import { CartContext } from "@/pages/_app";
+import { CartContext, CartDispatchContext } from "@/pages/_app";
 
 interface Prop {
   children: ReactNode;
@@ -8,7 +8,8 @@ interface Prop {
 
 export default function Layout({ children }: Prop) {
   const cart = useContext(CartContext);
-  const currentCartAmount = cart?.reduce(
+  const dispatch = useContext(CartDispatchContext);
+  const currentCartAmount = cart?.items.reduce(
     (currentItem, nextItem) => currentItem + nextItem.amount,
     0
   );
@@ -24,7 +25,12 @@ export default function Layout({ children }: Prop) {
           </svg>
         </Link>
         <Link href="/shop">SHOP</Link>
-        <div className="relative">
+        <div
+          className="relative cursor-pointer"
+          onClick={() => {
+            if (dispatch) dispatch({ type: "toggle" });
+          }}
+        >
           <div className="absolute bg-[#fdcf41] rounded-full w-4 h-4 -1 -top-1 -right-1 flex justify-center items-center font-normal text-xs">
             {currentCartAmount}
           </div>

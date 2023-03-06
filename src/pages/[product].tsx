@@ -1,9 +1,8 @@
 import { KeycapKits, KeycapSet } from "src/models/products";
 import React, { useRef, useState } from "react";
-import { SelectComponent } from "./Select";
-import { ImageSlider } from "./ImageSlider";
+import { SelectComponent } from "../components/Select";
+import { ImageSlider } from "../components/ImageSlider";
 import Image, { StaticImageData } from "next/image";
-import { getProduct } from "../utils/getProduct";
 
 export interface PreviewImg {
   img: StaticImageData;
@@ -71,7 +70,7 @@ const ProductSlider = (props: KeycapSet) => {
     <div className="flex gap-5">
       <div className="max-w-4xl">
         <div className="relative ">
-          <span className="z-50 absolute -bottom-4 right-0 ">
+          <span className="z-10 absolute -bottom-4 right-0 ">
             <div className="absolute top-0 right-0 -translate-y-full bg-gray-50 h-6 w-14 flex justify-center items-center">
               <span className=" text-[8px] ">
                 {`${currentIndex + 1}/${images.length}`}
