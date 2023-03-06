@@ -3,6 +3,8 @@ import React, { useRef, useState } from "react";
 import { SelectComponent } from "../components/Select";
 import { ImageSlider } from "../components/ImageSlider";
 import Image, { StaticImageData } from "next/image";
+import { GetStaticPaths, GetStaticProps } from "next";
+import productDatabase from "@/utils/products-database";
 
 export interface PreviewImg {
   img: StaticImageData;
@@ -28,8 +30,8 @@ const getImages = (product: KeycapSet): [PreviewImg[], KitData[]] => {
   return [previewImg, productImg];
 };
 
-const ProductSlider = (props: KeycapSet) => {
-  const [preview, product] = getImages(props);
+const ProductSlider = (props: { item: KeycapSet }) => {
+  const [preview, product] = getImages(props.item);
   const images = [...preview, ...product];
   const [currentKit, setCurrentKit] = useState(product[0]);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -132,7 +134,7 @@ const ProductSlider = (props: KeycapSet) => {
         handleChangeCurrentKit={handleChangeCurrentKit}
         images={product}
         currentKit={currentKit}
-        set={props.kits[0].set}
+        set={props.item.kits[0].set}
       />
       {/* <div className="cart">{cartEl}</div> */}
     </div>
@@ -140,3 +142,25 @@ const ProductSlider = (props: KeycapSet) => {
 };
 
 export default ProductSlider;
+
+export const getStaticProps: GetStaticProps = async (context) => {
+  const query = context.params?.item;
+  const result = productDatabase.find((item) => item.kits[0].set === query);
+
+  return {
+    props: {
+      item: result,
+    },
+  };
+};
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const pathsWithParams = productDatabase.map((set) => ({
+    params: { item: set.kits[0].set },
+  }));
+
+  return {
+    paths: pathsWithParams,
+    fallback: true,
+  };
+};
