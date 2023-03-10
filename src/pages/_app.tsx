@@ -18,6 +18,7 @@ interface Cart {
 
 type ACTIONTYPE =
   | { type: "add"; name: string; set: string }
+  | { type: "reduce"; name: string; set: string }
   | { type: "remove"; name: string; set: string }
   | { type: "toggle" };
 
@@ -61,7 +62,7 @@ const cartReducer = (cart: Cart, action: ACTIONTYPE) => {
       if (!newItem) throw new Error("Item not found");
       return { ...cart, items: [...cart.items, { item: newItem, amount: 1 }] };
     }
-    case "remove": {
+    case "reduce": {
       if (
         cart.items.find(
           (product) => product.item.name === action.name && product.amount > 1
@@ -80,7 +81,15 @@ const cartReducer = (cart: Cart, action: ACTIONTYPE) => {
       return {
         ...cart,
         items: cart.items.filter(
-          (product) => product.item.name === action.name
+          (product) => product.item.name !== action.name
+        ),
+      };
+    }
+    case "remove": {
+      return {
+        ...cart,
+        items: cart.items.filter(
+          (product) => product.item.name !== action.name
         ),
       };
     }

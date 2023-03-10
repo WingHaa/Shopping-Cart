@@ -1,5 +1,4 @@
 import React, { ReactNode } from "react";
-import { render } from "react-dom";
 
 interface Props {
   lastIndex: number;

@@ -1,5 +1,5 @@
 import React, { ReactElement, useContext, useRef } from "react";
-import { PreviewImg, KitData } from "../pages/[product]";
+import { KitData } from "../pages/[item]";
 import Select from "react-select";
 import { CartDispatchContext } from "@/pages/_app";
 
@@ -25,7 +25,7 @@ export const SelectComponent = ({
   const cartDispatch = useContext(CartDispatchContext);
 
   return (
-    <div className="flex flex-col gap-4 grow">
+    <div className="flex flex-col gap-4 grow mx-4 mt-7 md:mx-0 md:mt-0">
       <h1 className="text-4xl font-medium">{set.toUpperCase()}</h1>
       <div className="text-2xl font-normal">${currentKit.price}</div>
       <div className="font-medium">Keycap Kit:</div>
@@ -79,19 +79,18 @@ export const SelectComponent = ({
           }),
         }}
       />
-      <div className="cursor-pointer flex justify-center items-center bg-black text-white h-[60px] font-normal text-base slide-button">
-        <button
-          onClick={() => {
-            if (cartDispatch)
-              cartDispatch({
-                type: "add",
-                name: currentKit.name,
-                set: currentKit.set,
-              });
-          }}
-        >
-          ADD TO CART
-        </button>
+      <div
+        className="cursor-pointer flex justify-center items-center bg-black text-white h-[60px] font-normal text-base slide-button"
+        onClick={() => {
+          if (cartDispatch)
+            cartDispatch({
+              type: "add",
+              name: currentKit.name,
+              set: currentKit.set,
+            });
+        }}
+      >
+        <button>ADD TO CART</button>
       </div>
     </div>
   );

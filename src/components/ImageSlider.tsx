@@ -41,6 +41,10 @@ export const ImageSlider = forwardRef<HTMLImageElement[], Props>(
       />
     ));
 
-    return <div className="mt-2 overflow-hidden flex h-32 gap-1">{list}</div>;
+    return (
+      <div className="mt-2 overflow-hidden hidden md:flex md:h-32 gap-1">
+        {list}
+      </div>
+    );
   }
 );

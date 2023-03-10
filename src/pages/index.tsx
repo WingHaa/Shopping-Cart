@@ -3,7 +3,7 @@ import Image from "next/image";
 import productDatabase from "@/utils/products-database";
 import "react-image-gallery/styles/css/image-gallery.css";
 import { useEffect, useRef, useState } from "react";
-import HeroSlider from "@/components/slider";
+import HeroSlider from "@/components/HeroSlider";
 const headingDesc = [
   "Carbon is back with new kits and plenty of old favorites.",
   "Inspired by the iconic colorway on the original Apollo 11 Lunar Module Cockpit",
@@ -44,11 +44,11 @@ export default function Home() {
 
   const hero = productDatabase.map((set, index) => {
     return (
-      <div className="relative w-[968px] h-[569px]" key={index}>
+      <div className="relative h-[400px] md:h-[569px]" key={index}>
         <Image
           key={index}
           src={set.preview[0]}
-          style={{ objectFit: "cover", width: "100%" }}
+          style={{ objectFit: "cover" }}
           alt=""
           fill
         />
@@ -72,16 +72,16 @@ export default function Home() {
     return (
       <div
         key={index}
-        className="flex flex-col items-start py-6 pl-8 pr-5 min-h h-72"
+        className="flex flex-col items-start pt-[10px] px-5 md:py-6 md:pl-8 h-min md:h-72"
       >
-        <div className="text-2xl font-medium">
+        <div className="text-2xl leading-7 font-medium font-sans">
           {productDatabase[index].name}
         </div>
-        <div className="h-2"></div>
-        <div>{heading}</div>
-        <div style={{ flex: "1 1 0%" }}></div>
+        <div className="hidden md:block h-2"></div>
+        <div className="hidden md:block">{heading}</div>
+        <div className="hidden md:block" style={{ flex: "1 1 0%" }}></div>
         <Link
-          className="font-medium min-w-0  bg-black text-white hover:bg-[#fdcf41] hover:text-black"
+          className="hidden md:block font-medium min-w-0  bg-black text-white hover:bg-[#fdcf41] hover:text-black"
           href={`/${productDatabase[index].kits[0].set}`}
         >
           <span className="flex items-center justify-center px-5 h-11">
@@ -93,7 +93,7 @@ export default function Home() {
   });
 
   const heroControl = (
-    <span className="z-10 absolute bottom-0 right-0 translate-y-1/2">
+    <span className="hidden md:block absolute z-10 bottom-0 right-0 translate-y-1/2">
       <button
         onClick={() => handleSlide("left")}
         className="group w-11 h-11 bg-[#fdcf41] hover:bg-black"
@@ -121,10 +121,10 @@ export default function Home() {
   );
 
   return (
-    <div className="w-4/5 max-w-screen-xl min-h-[700px] m-auto">
-      <div className="h-[750px] relative">
+    <div className="max-w-screen-xl min-h-[700px] m-auto">
+      <div className="h-[400px] md:h-[569px] relative">
         <HeroSlider
-          className="absolute top-0 right-0"
+          className="w-full md:w-4/5 absolute top-0 right-0"
           items={hero}
           lastIndex={lastIndex}
           currentIndex={currentIndex}
@@ -134,7 +134,7 @@ export default function Home() {
           hideDefaultControl={true}
         />
         <HeroSlider
-          className="w-96 absolute bottom-6 left-0 bg-white -translate-x-1/2 -translate-y-3/4"
+          className="w-[255px] md:w-96 absolute bottom-0 md:bottom-28 left-0 bg-white"
           items={heroHeadings}
           lastIndex={lastIndex}
           currentIndex={currentIndex}

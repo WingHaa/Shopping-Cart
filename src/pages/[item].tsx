@@ -52,13 +52,6 @@ const ProductSlider = (props: { item: KeycapSet }) => {
     setCurrentKit(images[index] as KitData);
   };
 
-  // const cartEl = cart.map((product) => (
-  //   <div key={product.item.name}>
-  //     <div>{product.item.name}</div>
-  //     <div>Total: {product.item.price * product.amount}</div>
-  //   </div>
-  // ));
-
   const getNextIndex = (modifier: -1 | 1): number => {
     if (modifier === -1) {
       if (currentIndex === 0) return images.length - 1;
@@ -69,7 +62,7 @@ const ProductSlider = (props: { item: KeycapSet }) => {
   };
 
   return (
-    <div className="flex gap-5">
+    <div className="flex flex-col md:flex-row gap-5">
       <div className="max-w-4xl">
         <div className="relative ">
           <span className="z-10 absolute -bottom-4 right-0 ">
@@ -136,7 +129,6 @@ const ProductSlider = (props: { item: KeycapSet }) => {
         currentKit={currentKit}
         set={props.item.kits[0].set}
       />
-      {/* <div className="cart">{cartEl}</div> */}
     </div>
   );
 };
