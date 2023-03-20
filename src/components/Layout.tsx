@@ -15,7 +15,7 @@ export default function Layout({ children }: Prop) {
   );
   return (
     <>
-      <header className="sticky flex justify-evenly h-16 items-center font-medium">
+      <header className="sticky flex justify-around h-16 items-center font-medium">
         <Link href="/">
           <svg className="w-32" viewBox="0 0 423 95">
             <path
@@ -24,7 +24,6 @@ export default function Layout({ children }: Prop) {
             ></path>
           </svg>
         </Link>
-        <Link href="/shop">SHOP</Link>
         <div
           className="relative cursor-pointer"
           onClick={() => {

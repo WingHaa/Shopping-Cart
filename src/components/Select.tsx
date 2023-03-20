@@ -82,12 +82,14 @@ export const SelectComponent = ({
       <div
         className="cursor-pointer flex justify-center items-center bg-black text-white h-[60px] font-normal text-base slide-button"
         onClick={() => {
-          if (cartDispatch)
+          if (cartDispatch) {
             cartDispatch({
               type: "add",
               name: currentKit.name,
               set: currentKit.set,
             });
+            cartDispatch({ type: "toggle" });
+          }
         }}
       >
         <button>ADD TO CART</button>

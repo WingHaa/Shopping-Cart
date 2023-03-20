@@ -153,6 +153,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   return {
     paths: pathsWithParams,
-    fallback: true,
+    fallback: false,
   };
 };
